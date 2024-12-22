@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão de Aniversário</title>
+    <link rel="shortcut icon" href="/src/img/pngegg.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            padding: 30px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #ff6f61;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .signature {
+            margin-top: 20px;
+            font-style: italic;
+            color: #888;
+        }
+
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .confetti span {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff6f61;
+            opacity: 0.8;
+            border-radius: 50%;
+            animation: confettiFall 5s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100vh) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) translateX(calc(-50vw + 100px));
+                opacity: 0;
+            }
+        }
+
+        .balloons {
+            position: absolute;
+            bottom: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 0;
+        }
+
+        .balloon {
+            width: 70px;
+            height: 100px;
+            background: radial-gradient(circle, #ff6f61, #ff4040);
+            border-radius: 50%;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .balloon:nth-child(2) {
+            background: radial-gradient(circle, #ffd700, #ff9900);
+            animation-delay: 1s;
+        }
+
+        .balloon:nth-child(3) {
+            background: radial-gradient(circle, #4caf50, #388e3c);
+            animation-delay: 2s;
+        }
+
+        .balloon:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 60px;
+            background: #888;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-30px) translateX(-10px);
+            }
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding: 0;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .card {
+                max-width: 90%;
+                padding: 20px;
+                margin: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .balloon {
+                width: 50px;
+                height: 70px;
+            }
+
+            .balloons {
+                gap: 10px;
+            }
+
+            .confetti span {
+                width: 7px;
+                height: 7px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            body {
+                padding: 0;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+
+            .card {
+                max-width: 95%;
+                padding: 15px;
+                margin: 10px 0;
+                box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+            }
+
+            h1 {
+                font-size: 1.5em;
+                margin-bottom: 8px;
+            }
+
+            p {
+                font-size: 0.9em;
+                line-height: 1.5;
+            }
+
+            .balloon {
+                width: 40px;
+                height: 60px;
+            }
+
+            .balloons {
+                gap: 8px;
+            }
+
+            .confetti span {
+                width: 5px;
+                height: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Feliz Aniversário!</h1>
+        <p>Nos conhecemos há 7 anos já, quer dizer conhecer mesmo há 6 desde 2018. Cara de verdade, você é uma pessoa incrível que fez muita diferença na minha vida. Naquela época, não sei se você sabe, mas eu passava por muitos problemas em casa e só de sentar no fundo com você jogando papo fora ou até mesmo dormir lá kkk me ajudou muito. Eu sei que eu não entrei muito na sala aquele ano, mas se tem uma, algo ou alguém que me fazia querer entrar naquela sala pra sentar no fundão era você. Você fazia meus piores dias serem mais leves e esquecer os problemas de casa. Eu tenho uma admiração absurda por quem você é, toda vez que te vejo no Instagram ou algo assim cai a ficha que você virou professora e cara isso é muito foda. Mas enfim, muito obrigado por tudo e feliz aniversário! Espero que goste dos presentes, não era exatamente o que eu queria te dar, mas com o tempo curto foi o que eu achei que você gostaria. Bjs e a gente se vê na festa😁
+            .</p>
+        <div class="signature">- Jeferson</div>
+    </div>
+    <div class="confetti" id="confetti-container"></div>
+    <div class="balloons">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+    </div>
+
+    <script>
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            for (let i = 0; i < 200; i++) {
+                const confetti = document.createElement('span');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
+                container.appendChild(confetti);
+            }
+        }
+
+        createConfetti();
+    </script>
+</body>
+</html>
